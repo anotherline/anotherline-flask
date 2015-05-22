@@ -48,12 +48,16 @@ def edit_profile():
 		current_user.name = form.name.data
 		current_user.location = form.location.data
 		current_user.about_me = form.about_me.data
+		current_user.university = form.university.data
+		current_user.title = form.title.data
 		db.session.add(current_user)
 		flash('Your profile has been updated.')
 		return redirect(url_for('.user', username=current_user.username))
 	form.name.data = current_user.name
 	form.location.data = current_user.location
 	form.about_me.data = current_user.about_me
+	form.university.data = current_user.university
+	form.title.data = current_user.title
 	return render_template('edit_profile.html', form=form)
 
 
@@ -71,6 +75,8 @@ def edit_profile_admin(id):
 		user.name = form.name.data
 		user.location = form.location.data
 		user.about_me = form.about_me.data
+		user.university = form.university.data
+		user.title = form.title.data
 		db.session.add(user)
 		flash('The profile has been updated.')
 		return redirect(url_for('.user', username=user.username))
@@ -81,6 +87,8 @@ def edit_profile_admin(id):
 	form.name.data = user.name
 	form.location.data = user.location
 	form.about_me.data = user.about_me
+	form.university.data = user.university
+	form.title.data = user.title
 	return render_template('edit_profile.html', form=form, user=user)
 
 #--------------------------
