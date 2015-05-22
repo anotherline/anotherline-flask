@@ -47,3 +47,6 @@ nosetests.xml
 
 # Virtual environment
 venv
+
+#Console work
+console-work.txt

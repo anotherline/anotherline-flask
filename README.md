@@ -4,7 +4,9 @@
 
 ## About
 
-This application, called AnotherLine, will offer scholars a way to add and update their CV/portfolio information, which can either be hosted and rendered within the app, or their data may also be served as API endpoints for scholars to use in conjunction with their own HTML/CSS/JS templates. Essentially, their data is open and can be exported and used as they so desire.
+The AnotherLine app will offer scholars a way to add and update their CV/portfolio information online. From there, users can choose a CV template to showcase their work within the app, or, if the user has their own site hosted elsewhere, they can use their CV data via API endpoints to use with their own HTML/CSS/JS. Essentially, their data is open and can be exported and used as they so desire.
+
+Additionally, scholars will be able to export their CV as a PDF. They will be able to export the entire CV or select desired elements to export as needed as a PDF.
 
 ## File Structure
 
