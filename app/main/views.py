@@ -163,10 +163,9 @@ def edit_book(username, id):
 	return render_template('edit_book.html', form=form)
 
 
-@main.route('/<username>/<int:id>/cv/', methods=['GET', 'POST'])
-def user_cv(id,username):
+@main.route('/<username>/cv/<int:id>', methods=['GET', 'POST'])
+def user_cv(username, id):
 	user = User.query.get_or_404(id)
-	mycv = current_user.cv
 
 	def books_exist(self, id):
 		bks_exist = self.query.filter(Cv.id == id)
@@ -174,6 +173,5 @@ def user_cv(id,username):
 
 	return render_template('cv.html', 
 							user=user,
-							mycv=mycv,
 							username=user.username,
 							id=id)
