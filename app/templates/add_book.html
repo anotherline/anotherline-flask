@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %} {{ title }} - Add a book {% endblock %}
+
+{% block page_content %}
+
+<div class="container container-margin">
+  <div class="row">
+    <div class="col-md-4">
+      <img class="icons-on-form-pg" src="/static/assets/img/icons/book.png" alt="Add a book" />
+      <h3 class="form-heading">Add a book</h3>
+    </div>
+
+    <div id="add-book" class="col-md-5 col-sm-6">
+      {{ wtf.quick_form(form) }}
+    </div>
+  </div>
+</div>
+
+{% endblock %}

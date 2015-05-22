@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block head %}
+  {{ super() }}
+{% endblock %}
+
+{% block page_content %}
+
+  <div class="container container-margin">
+    <div class="row">
+      <div class="col-md-4">
+        <img class="form-img" src="http://placehold.it/200x200" alt="Login" />
+        <h3 class="form-heading">User Login</h3>
+      </div>
+
+      <div class="col-md-5 col-sm-6">
+        <div id="user-login">
+          {{ wtf.quick_form(form) }}
+        </div>
+        <div id="registration-link">
+          <p>
+            New user? <a href="{{ url_for('auth.register') }}">Click here to register</a>.
+          </p>
+          <p>
+            Forgot your password? <a href="{{ url_for('auth.password_reset_request') }}">Click here to reset it</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

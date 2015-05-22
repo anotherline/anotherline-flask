@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %} {{ title }} - Change Your Email Address {% endblock %}
+
+{% block page_content %}
+
+<div class="container container-margin">
+  <div class="row">
+    <div class="col-md-4">
+      <img class="form-img" src="http://placehold.it/200x200" alt="Change your password" />
+      <h3 class="form-heading">Change Your Email Address</h3>
+    </div>
+
+    <div id="change-email" class="col-md-5 col-sm-6">
+      {{ wtf.quick_form(form) }}
+    </div>
+  </div>
+</div>
+
+{% endblock %}

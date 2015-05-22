@@ -1,0 +1,122 @@
+{% extends "base-dropdown.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %} {{ title }} - {{ user.username }}{% endblock %}
+
+{% block page_content %}
+
+  <div id="banner" class="page-header">
+    <div class="row">
+      <div class="col-lg-6">
+        <h2></h2>
+      </div>
+  </div>
+  
+  <div class="container container-margin">
+    <div class="row">
+
+      <!-- GENERAL PROFILE INFO -->
+      <div class="col-xs-12 col-sm-3">
+        <img src="{{ user.gravatar(size=150) }}") class="profile" />
+        <h4>
+          <a href="#">{{ user.name }}</a>
+        </h4>
+        <p class="address">
+          <!-- Only have this data point, need distinct general model -->
+          <!-- {[percentage] include '_general_info_list.html' [percentage]} -->
+        </p>
+      </div>
+
+      <!-- EDUCATION -->
+      <div class="col-xs-12 col-sm-9">
+        <div id="my-edu-cred">
+          <h2 class="word education">Education</h2>
+          <div id="my-edu-cred-child1">
+            <h3 class="inner-span striped parent-list">PhD Candidate in Rhetoric and Science and Technical Communication</h3>
+            <div id="ed-phd-info">
+              <ul class="striped">
+                <li>
+                  <a href="http://writingstudies.umn.edu/grad/phd/" target="_blank">University of Minnesota</a>
+                <li>
+                  Advisor: <a href="http://writingstudies.umn.edu/people/profile.php?UID=chaas" target="_blank">Christina Haas</a>
+              </ul>
+            </div>
+          </div>
+          <div id="my-edu-cred-child2">
+            <h3 class="inner-span striped parent-list">MA in Composition Studies</h3>
+            <div id="ed-masters-info">
+              <ul class="striped">
+                <li>
+                  <a href="http://www.ndsu.edu/english/ma_degree/" target="_blank">North Dakota State University</a>, 2012
+                <li>Thesis: "Where’s the Revolution? From 'Code Year' to the Continuum of Proceduracy"
+                  <ul class="indent-margin-fix">
+                    <li>
+                      Advisor/Chair: <a href="http://www.ndsu.edu/english/faculty/kevin_brooks/" target="_blank">Kevin Brooks, English</a>
+                    <li>
+                      Member: <a href="http://www.ndsu.edu/english/faculty/andrew_mara/" target="_blank">Andrew Mara, English</a>
+                    <li>
+                      Member: <a href="http://www.ndsu.edu/english/faculty/kelly_sassi/" target="_blank">Kelly Sassi, English Ed.</a>
+                    <li>
+                      Outside: <a href="http://www.cs.ndsu.nodak.edu/~slator/" target="_blank">Brian Slator, Computer Science</a>
+                  </ul>
+              </ul>
+            </div>
+          </div>
+          <div id="my-edu-cred-child3">
+            <h3 class="inner-span striped parent-list">BA in English</h3>
+            <div id="ed-bachelors-info">
+              <ul class="striped">
+                <li>
+                  North Dakota State University, 2004
+                <li>
+                  Advisor: <a href="http://www.ndsu.edu/english/faculty/kevin_brooks/" target="_blank">Kevin Brooks</a>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- APPOINTMENTS -->
+      <div class="col-xs-12 col-sm-9">
+        <!-- {[percentage] if current_user.books_exist() [percentage]} -->
+        <div id="my-pubs-cred">
+          <h2 class="word appointments">Appointments</h2>
+          <!-- {[percentage] '_appointment_list.html' [percentage]} -->
+        </div>
+        <!-- {[percentage] endif [percentage]} -->
+      </div>
+
+      <!-- {[percentage] if current_user.cv.books_exist() [percentage]} -->
+      <!-- PUBLICATIONS -->
+      <div class="col-xs-12 col-sm-9">
+        <div id="my-pubs-cred">
+          <h2 class="word publications">Publications</h2>
+          {% include '_pub_list.html' %}
+        </div>
+      </div>
+      <!-- {[percentage] endif [percentage]} -->
+
+      <!-- PRESENTATIONS -->
+      <div class="col-xs-12 col-sm-9">
+        <!-- {[percentage] if current_user.books_exist() [percentage]} -->
+        <div id="my-pubs-cred">
+          <h2 class="word presentations">Presentations</h2>
+          <!-- {[percentage] '_appointment_list.html' [percentage]} -->
+        </div>
+        <!-- {[percentage] endif [percentage]} -->
+      </div>
+
+      <!-- SERVICE -->
+      <div class="col-xs-12 col-sm-9">
+        <!-- {[percentage] if current_user.books_exist() [percentage]} -->
+        <div id="my-pubs-cred">
+          <h2 class="word service">Service</h2>
+          <!-- {[percentage] '_appointment_list.html' [percentage]} -->
+        </div>
+        <!-- {[percentage] endif [percentage]} -->
+      </div>
+
+    </div><!-- end row -->
+  </div><!-- end container -->
+
+{% endblock %}

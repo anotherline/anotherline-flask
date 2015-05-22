@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %} {{ title }} - {{ user.username }}{% endblock %}
+
+{% block page_content %}
+	<div class="container container-margin">
+		<div class="row">
+			<div class="col-md-4">
+				<!-- <img class="form-img" src="http://placehold.it/200x200" alt="" /> -->
+				<img class="form-img" src="{{ user.gravatar(size=150) }}">
+				<h3 class="form-heading">{{ user.username }}</h3>
+				{% if user == current_user %}
+					<p>
+						<a href="{{ url_for('.edit_profile') }}">
+							Edit Profile
+						</a>
+					</p>
+				{% endif %}
+
+				{% if current_user.name or user.location or user.university %}
+					<p>
+						{% if user.name %}
+							<b>Name</b>: {{ user.name }}
+						{% endif %}
+					</p>
+					<p>
+						{% if user.university %}
+							<b>University</b>: {{ user.university }}
+						{% endif %}
+					</p>
+					<p>
+						{% if user.location %}
+							<b>Location</b>: <a href="http://maps.google.com/?q={{ user.location }}">{{ user.location }}</a>
+						{% endif %}
+					</p>
+				{% endif %}
+				
+				{% if current_user.is_administrator() %}
+					<p>
+						<a href="mailto:{{ user.email }}">{{ user.email }}</a>
+					</p>
+				{% endif %}
+
+				{% if user.about_me %}
+					<p>
+						<b>About me</b>: {{ user.about_me }}
+					</p>
+				{% endif %}
+
+				<p>
+					Member since {{ moment(user.member_since).format('L') }}. Last seen {{ moment(user.last_seen).fromNow() }}.
+				</p>
+			</div>
+
+			<div id="user-cvs" class="col-md-5 col-sm-6">
+				{%- if user.cv -%}
+				<h2>
+					<a href="{{ url_for('.user_cv', username=current_user.username, id=user.id) }}">
+            	{{ user.username }}'s CV
+            </a>
+        </h2>
+        {% else %}
+        <h2>
+        	Name your Cv
+        </h2>
+        {{ wtf.quick_form(form) }}
+				{% endif %}
+
+				<!-- Need to rewrite with Permission.MAKE_CV -->
+				{% if user == current_user %}
+				<a href="{{ url_for('.add_new_book', username=current_user.username) }}">
+    				<img src="/static/assets/img/icons/plus-10px.png" alt="Add new C.V.">
+    				Add a new book
+    			</a>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+	
+{% endblock %}

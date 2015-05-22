@@ -1,0 +1,41 @@
+
+{% if user == current_user %}
+  <!-- { if user.cv._____.exists() } -->
+  <div id="my-pubs-cred-child1" class="inner-child">
+    <h2 class="inner-span">publications</h2>
+    <div id="real-pubs-child">
+      <ul class="striped">
+        {% for b in user.books %}
+          <li>
+            {{ b.fam_name }}, {{ b.given }}. ({{ b.year }}). <cite>{{ b.title }}</cite>. {{ b.city }}, {{ b.state }}: {{ b.publisher }}.
+          </li>
+        <!-- <li>
+          Brooks, Kevin &amp; Chris Lindgren. (2015). Responding to the coding crisis: From 'Code Year' to Code Decade. Lynn C. Lewis, (Ed.). <cite>Strategic Discourse: The Politics of (New) Literacy Crises</cite>. Computers and Composition Digital Press. <a href="http://ccdigitalpress.org/strategic/chapters/brookslindgren/index.html" target="_blank">http://ccdigitalpress.org/strategic/chapters/brookslindgren/index.html</a>.
+        <li>
+          Brooks, Kevin, Chris Lindgren, and Matthew Warner. (2015). Tackling a fundamental problem: Using digital labs to build a smarter computing culture. Bill Hart-Davidson and Jim Ridolfo, (Eds.). <cite>Rhetoric and the Digital Humanities</cite>, (pp. 224 - 232). Chicago, IL: University of Chicago Press. -->
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  <!-- { endif } -->
+
+  <div id="my-pubs-cred-child2" class="inner-child">
+      <h2 class="inner-span">book reviews</h2>
+      <div id="reviews-pubs-child">
+        <ul class="striped">
+          <li>
+            Lindgren, Chris. (2013). BASIC coding cultures. [Review of the book <em>10 PRINT CHR$(205.5+RND(1)); : GOTO 10</em>, by N. Montfort, P. Baudoin, J. Bell, I. Bogost, J. Douglass, M. C. Marino, M. Mateas, C. Raes, M. Sample, &amp; N. Vawter]. <cite>Enculturation, 16</cite>. Go to <a href="http://enculturation.gmu.edu/10-print" target="_blank">http://enculturation.gmu.edu/10-print</a>.
+        </ul>
+      </div>
+  </div>
+  <div id="my-pubs-cred-child3" class="inner-child">
+      <h2 class="inner-span">publications in progress</h2>
+      <div id="in-process-pubs-child">
+        <ul class="striped">
+          <li>
+            Hawk, Byron, Chris Lindgren, and Andrew Mara. Utopian Laptop Initiatives: From technological deism to object-oriented rhetoric. In Sidney Dobrin, (Ed.). <cite>Writing Posthumanism, Posthuman Writing</cite>. [Manuscript accepted; Parlor Press, July 2014].
+        </ul>
+      </div>
+  </div>
+
+{% endif %}

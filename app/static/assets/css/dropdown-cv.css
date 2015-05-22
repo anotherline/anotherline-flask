@@ -1,0 +1,300 @@
+/* Original inspiration from J. Vengel (http://codepen.io/JbvGaming/pen/cHxzm) */
+
+@import url(http://fonts.googleapis.com/css?family=BenchNine:700);
+@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
+
+html,
+body {
+  height: 100%;
+  /* Deprecated syntax, but necessary for WebKit-based/old browsers */
+  background: linear-gradient(left, #e7e7e7, #ffffff, #e7e7e7);
+  /* New syntax for standards-compliant browsers (Opera 12.1, IE 10, Fx 16 onwards) without prefix */
+  background: linear-gradient(to right, #e7e7e7, #ffffff, #e7e7e7);
+}
+
+h1,h2,h3,h4,p,ul {font-family: "BenchNine";}
+cite{font-style: italic;}
+
+/*NAVIGATION*/
+#navigation {
+  background: #00585F;
+}
+.navbar-default .navbar-brand,.navbar-default .navbar-nav > li > a {
+  color: #F0EDBB;
+  font-family: "BenchNine";
+}
+.navbar-default .navbar-brand:hover { color: #FFF; font-size: 22.5px; }
+.navbar-default .navbar-nav > li > a:hover { color: #FFF; font-size: 18px; }
+.navbar-default .navbar-brand { font-size: 22px; }
+.navbar-default .navbar-nav > li > a { font-size: 16px; }
+
+.wrapper {
+  width: 90%;
+  margin: 50px 0px 0px 50px;
+  position: Relative;
+  font-family: "BenchNine";
+  line-height: 1;
+}
+#mobile-nav {display: none;}
+.word {
+  display: block;
+  text-align: left;
+  font-family: "BenchNine";
+  line-height: 0.8;
+  text-transform: uppercase;
+  letter-spacing: 0px;
+  width:100%;
+  cursor: context-menu;
+}
+
+/*=================================
+  TEXT
+  ===============================*/
+h2,h4 {margin:0;padding:0 0 12px 0;font-style: normal;}
+h3 {margin:0;padding-bottom:12px;font-style: normal;}
+h3 {font-size: 20px; font-family: "BenchNine";}
+ul { list-style-type: none;margin: -10px 0 0 -42px; }
+  .striped li:nth-child(odd) {background-color:#f9f9f9;}
+  .striped li:hover {background-color:#99c5de;}
+  .striped li {
+    max-width: 100%;
+    margin:0;
+    padding: 10px 5px 10px 15px;
+  }
+.indent {list-style-type: none;margin: -10px 0 0 -20px;line-height: 1.5;}
+.indent-margin-fix {list-style-type: none;margin: 10px 0 0 -20px;line-height: 1.5;}
+.parent-list {line-height: 1.5;}
+.margin-list-fix {line-height: 2;}
+.word:hover {text-decoration: underline;}
+.inner-child { padding: 10px 0px 20px 3px; }
+.inner-span:hover {text-decoration: underline;}
+.name {
+  color: #9bc5de;
+}
+.education,
+.publications {
+  color: #90b3c9;
+}
+.presentations,
+.service {
+  color: #809bb0;
+}
+.grants {
+  color: #6b7b8a;
+}
+.appointments {
+  color: #8b8091;
+}
+.awards,
+.fellowships,
+.affiliations {
+  color: #b68fa2;
+}
+.languages,
+.proficiencies {
+  color: #d99ab5;
+}
+.name {
+  font-size: 6.3em;
+}
+.education {
+  font-size: 4.8em;
+}
+.publications {
+  font-size: 6.4em;
+}
+.presentations {
+  font-size: 6em;
+}
+.service {
+  font-size: 5.5em;
+}
+.grants {
+  font-size: 5em;
+}
+.appointments {
+  font-size: 4.8em;
+}
+.affiliations {
+  font-size: 4.2em;
+}
+.awards,
+.fellowships {
+  font-size: 4em;
+}
+.languages {
+  font-size: 3.8em;
+}
+.proficiencies {
+  font-size: 4em;
+}
+
+/*=================================
+  IMAGES
+  ===============================*/
+.profile {
+  border-radius: 100px;
+  padding-bottom: 10px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/*FOOTER*/
+footer {
+  min-height: 50px;
+  margin-top: 10px;
+  background: #00585F;
+  color: #F0EDBB;
+  font-family: "BenchNine";
+}
+
+@media screen and (max-width: 1024px){ 
+  #mobile-nav {display: none;}
+  .contact-bubble {
+    height: 175px;
+    width: 170px;
+    padding: 10px 5px 30px 15px;
+    position: absolute;
+    color: white;
+    background-color: #99c5de;
+    font-family: "Open Sans Condensed";
+    border-top-left-radius: 30px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 0;
+    right: 40%;
+    top: 0.5%;
+  }
+}
+
+@media screen and (max-width: 979px){ 
+  #mobile-nav {display: none;}
+  .contact-bubble {
+    height: 175px;
+    width: 170px;
+    padding: 10px 5px 30px 15px;
+    position: absolute;
+    color: white;
+    background-color: #99c5de;
+    font-family: "Open Sans Condensed";
+    border-top-left-radius: 30px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 0;
+    right: 0%;
+    top: 0.5%;
+  }
+}
+
+@media screen and (min-width: 768px) and (max-width: 979px){ 
+  #mobile-nav {display: none;}
+  .contact-bubble {
+    height: 175px;
+    width: 170px;
+    padding: 10px 5px 30px 15px;
+    position: absolute;
+    color: white;
+    background-color: #99c5de;
+    font-family: "Open Sans Condensed";
+    border-top-left-radius: 30px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 0;
+    right: 0%;
+    top: 0.5%;
+  }
+}
+
+@media screen and (max-width: 767px){ 
+  #mobile-nav {display: none;}
+  .contact-bubble {
+    height: 175px;
+    width: 170px;
+    padding: 0px 5px 30px 15px;
+    position: absolute;
+    color: white;
+    background-color: #99c5de;
+    font-family: "Open Sans Condensed";
+    border-top-left-radius: 30px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 0;
+    right: 0%;
+    top: 0.5%;
+  }
+}
+
+/* phone landscape view */
+@media screen and (min-width: 480px) and (max-width: 600px){ 
+  .contact-bubble {
+    display: none;
+  }
+  .wrapper {
+    margin: 0px;
+    position: Relative;
+  }
+  #mobile-nav { 
+    width: 100%; 
+    margin: 15px 0px 15px 0px; 
+    padding: 15px 0px 15px 0px;
+    display: inline-block; 
+    background-color:#99c5de;
+    text-transform: uppercase;
+    line-height: 0;
+  }
+}
+
+/* phone portrait view */
+@media screen and (max-width: 550px){
+  .wrapper {
+    margin: 0px;
+    position: Relative;
+  }
+  #mobile-nav { 
+    width: 100%; 
+    margin: 15px 0px 15px 0px; 
+    padding: 15px 0px 15px 0px;
+    display: inline-block; 
+    background-color:#99c5de;
+    text-transform: uppercase;
+    line-height: 0;
+  }
+  #mobile-nav > a { background-color:#99c5de; line-height: 0; margin: 0; }
+  .contact-bubble {
+    display: none;
+  }
+  .name {
+    font-size: 4.3em;
+  }
+  .education {
+    font-size: 2.8em;
+  }
+  .publications {
+    font-size: 4.4em;
+  }
+  .presentations {
+    font-size: 4em;
+  }
+  .service {
+    font-size: 3.5em;
+  }
+  .grants {
+    font-size: 3em;
+  }
+  .appointments {
+    font-size: 2.8em;
+  }
+  .affiliations {
+    font-size: 2.2em;
+  }
+  .awards {
+    font-size: 2em;
+  }
+  .languages {
+    font-size: 1.8em;
+  }
+  .proficiencies {
+    font-size: 2em;
+  }
+}
