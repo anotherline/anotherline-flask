@@ -54,7 +54,26 @@ class User(UserMixin, db.Model):
 	cv = db.relationship("Cv", uselist=False, backref="user") #1-to-1
 	books = db.relationship("Book", lazy='dynamic') #1-to-Many
 
-	name = db.Column(db.String(64))
+	given_name = db.Column(db.String(64))
+	mid_name = db.Column(db.String(64))
+	fam_name = db.Column(db.String(64))
+	fullname = column_property(given_name 
+																	+' ' 
+																	+mid_name 
+																	+' ' 
+																	+fam_name)
+	apa_beg_name = column_property(fam_name 
+																	+', ' 
+																	+given_name[0].capitalize() 
+																	+'.' 
+																	+mid_name[0].capitalize()
+																	+'.')
+	apa_end_name = column_property(given_name[0].capitalize()
+																	+'.'
+																	+mid_name[0].capitalize()
+																	+'. '
+																	+fam_name)
+
 	location = db.Column(db.String(64))
 	about_me = db.Column(db.Text())
 	member_since = db.Column(db.DateTime(), default=datetime.utcnow)
