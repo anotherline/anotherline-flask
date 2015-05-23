@@ -58,11 +58,8 @@ class User(UserMixin, db.Model):
 	mid_name = db.Column(db.String(64))
 	fam_name = db.Column(db.String(64))
 	fullname = column_property(given_name + ' ' + mid_name + ' ' + fam_name)
-	apa_beg_name = column_property(fam_name + ', ' + given_name[0].capitalize() \
-																				+ '.' + mid_name[0].capitalize() + '.')
-	apa_end_name = column_property(given_name[0].capitalize() + '.' \
-																				+ mid_name[0].capitalize() + '. ' \
-																				+ fam_name)
+	apa_beg_name = column_property(fam_name + ', ' + given_name[0].capitalize() + '.' + mid_name[0].capitalize() + '.')
+	apa_end_name = column_property(given_name[0].capitalize() + '.' + mid_name[0].capitalize() + '. ' + fam_name)
 
 	location = db.Column(db.String(64))
 	about_me = db.Column(db.Text())
