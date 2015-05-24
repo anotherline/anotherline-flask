@@ -1,7 +1,7 @@
 import unittest
 import time
 from app import create_app, db
-from app.models import User, AnonymousUser, Role, Permission, Cv, Book, CvBook
+from app.models import User, AnonymousUser, Role, Permission, Cv, Book
 
 
 class UserModelTestCase(unittest.TestCase):
@@ -15,18 +15,6 @@ class UserModelTestCase(unittest.TestCase):
 		db.session.remove()
 		db.drop_all()
 		self.app_context.pop()
-
-	# def test_cv_name(self):
-	# 	u = User(email='john@example.com', password='cat')
-	# 	c = Cv(cvname='myCvTest')
-	# 	self.assertTrue(c.cvname is not None)
-		
-
-	# def test_book_name_setter(self):
-	# 	f = Book(first_name='Chris')
-	# 	m = Book(middle_name='Aaron')
-	# 	l = Book(last_name='Lindgren')
-	# 	self.assertTrue(f.name is not None)
 
 	def test_password_setter(self):
 		u = User(password='cat')

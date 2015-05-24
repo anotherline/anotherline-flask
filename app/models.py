@@ -3,6 +3,7 @@ from sqlalchemy import create_engine
 from sqlalchemy import Column, Integer, ForeignKey, String, Enum
 from sqlalchemy.ext.hybrid import hybrid_property
 from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm.collections import attribute_mapped_collection
 import hashlib
 from flask import request
 from datetime import datetime
@@ -57,20 +58,18 @@ class User(UserMixin, db.Model):
 	given_name = db.Column(db.String(64))
 	mid_name = db.Column(db.String(64))
 	fam_name = db.Column(db.String(64))
-	fullname = column_property(given_name + ' ' + mid_name + ' ' + fam_name)
-	apa_beg_name = column_property(fam_name + ', ' + given_name[0].capitalize() + '.' + mid_name[0].capitalize() + '.')
-	apa_end_name = column_property(given_name[0].capitalize() + '.' + mid_name[0].capitalize() + '. ' + fam_name)
 
-	location = db.Column(db.String(64))
-	about_me = db.Column(db.Text())
-	member_since = db.Column(db.DateTime(), default=datetime.utcnow)
-	last_seen = db.Column(db.DateTime(), default=datetime.utcnow)
 	username = db.Column(db.String(64), unique=True, index=True)
 	email = db.Column(db.String(64), unique=True, index=True)
 	title = db.Column(db.String(64), unique=True)
 	university = db.Column(db.String(128), unique=True)
 	phone = db.Column(db.String(64), unique=True)
 	website = db.Column(db.String(64), unique=True)
+	location = db.Column(db.String(64))
+	about_me = db.Column(db.Text())
+	member_since = db.Column(db.DateTime(), default=datetime.utcnow)
+	last_seen = db.Column(db.DateTime(), default=datetime.utcnow)
+
 	password_hash = db.Column(db.String(128))
 	avatar_hash = db.Column(db.String(32))
 	confirmed = db.Column(db.Boolean, default=False)
@@ -222,44 +221,14 @@ class Book(db.Model):
 	state = db.Column(db.String(64))
 	year = db.Column(db.String(4))
 	url = db.Column(db.String(64))
-	given = db.Column(db.String(64))
-	fam_name = db.Column(db.String(64))
-	middle_name = db.Column(db.String(64))
 	pub_type = db.Column(db.String(64))
 
-	@hybrid_property
-	def name (self):
-		given = self.given if self.given is not None else ""
-		middle_name = self.middle_name if self.middle_name is not None else ""
-		fam_name = self.fam_name if self.fam_name is not None else ""
-		return " ".join((given, middle_name, fam_name)).strip()
-
-	@name.setter
-	def name (self, string):
-		given = ""
-		middle_name = ""
-		fam_name = ""
-		split_string = string.split(' ')
-		if len(split_string) == 1:
-			given = string
-		elif len(split_string) == 2:
-			given, fam_name = split_string
-		elif len(split_string) == 3:
-			given, middle_name, fam_name = split_string
-		else: #len(split_string) > 3:
-			given = split_string[0]
-			fam_name = split_string[-1]
-			middle_name = " ".join(split_string[1:-2])
-		self.given = given
-		self.middle_name = middle_name
-		self.fam_name = fam_name
-
-	@name.expression
-	def name (cls):
-		f = cls.given
-		m = cls.middle_name
-		l = cls.fam_name
-		return f+' '+m+' '+l
+	given_name = db.Column(db.String(64))
+	fam_name = db.Column(db.String(64))
+	mid_name = db.Column(db.String(64))
+	fullname = db.column_property(given_name + ' ' + mid_name + ' ' + fam_name)
+	apa_beg_name = db.column_property(fam_name + ', ' + given_name + '.' + mid_name + '.')
+	apa_end_name = db.column_property(given_name + '.' + mid_name + '. ' + fam_name)
 
 	def __repr__(self):
 		return '<Book %r>' % self.title

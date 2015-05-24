@@ -6,9 +6,9 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 
 SECRET_KEY = '[secret key here]'
 DEBUG = True
-DATABASE_URL = 'sqlite:///' + os.path.join(basedir, 'data.sqlite')
-DEV_DATABASE_URL = 'sqlite:///' + os.path.join(basedir, 'data-dev.sqlite')
-TEST_DATABASE_URL = 'sqlite:///' + os.path.join(basedir, 'data-test.sqlite')
+DATABASE_URL = 'postgresql://' + os.path.join(basedir, 'data.sql')
+DEV_DATABASE_URL = 'postgresql://' + os.path.join(basedir, 'data-dev.sql')
+TEST_DATABASE_URL = 'postgresql://' + os.path.join(basedir, 'data-test.sql')
 SQLALCHEMY_COMMIT_ON_TEARDOWN = True
 LNDGRN_ADMIN = '[admin name here]'
 
