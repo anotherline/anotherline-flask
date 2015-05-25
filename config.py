@@ -11,6 +11,9 @@ class Config(object):
 	DATABASE_URL = settings.DATABASE_URL
 	SQLALCHEMY_COMMIT_ON_TEARDOWN = settings.SQLALCHEMY_COMMIT_ON_TEARDOWN
 	LNDGRN_ADMIN = settings.LNDGRN_ADMIN
+	DB_USERNAME = settings.DB_USERNAME
+	DB_PASSWORD = settings.DB_PASSWORD
+	SQLALCHEMY_DATABASE_URI = settings.SQLALCHEMY_DATABASE_URI
 
 	MAIL_SERVER = settings.MAIL_SERVER
 	MAIL_PORT = settings.MAIL_PORT
@@ -25,18 +28,19 @@ class Config(object):
 		pass
 
 class DevelopmentConfig(Config):
+
 	DEBUG = True
 	SQLALCHEMY_DATABASE_URI = os.environ.get('DEV_DATABASE_URL') or \
-		'postgresql://' + os.path.join(basedir, 'data-dev.sql')
+		settings.SQLALCHEMY_DATABASE_URI
 
 class TestingConfig(Config):
 	TESTING = True
 	SQLALCHEMY_DATABASE_URI = os.environ.get('TEST_DATABASE_URL') or \
-		'postgresql://' + os.path.join(basedir, 'data-test.sql')
+		settings.SQLALCHEMY_TEST_DATABASE_URI
 
 class ProductionConfig(Config):
 	SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
-		'postgresql://' + os.path.join(basedir, 'data.sql')
+		'postgresql://' + os.path.join(basedir, 'data')
 
 config = {
 	'development': DevelopmentConfig,

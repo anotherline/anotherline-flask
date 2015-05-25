@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 import os
+import psycopg2
 from app import create_app, db
 from app.models import User, Role, Permission, Cv, Book
 from flask.ext.script import Manager, Shell
@@ -9,7 +10,6 @@ from app import config
 
 # from app.models import User, Role, Cv, General, Address, Profiles, Teaching, Publications, Books, BookAuthors, Chapters, ChapterAuthors, Articles, ArticleAuthors, WebPubs, WebPubAuthors, CourseWork, CourseWorkAuthors, Presentations, ConferencePres, ConfPresAuthors, Workshops, WorkshopAuthors, DeptPres, DeptPresAuthors, Education, Undergrad, UndergradCommittee, Masters, MastersCommittee, Phd, PhdCommittee, Service, Editorial, Groups, Committees, Awards, Grants, Affiliations, Languages, Skills, Audio, Video, Office, CourseManagement, OtherSkills
 
-# app = create_app(config or 'default')
 app = create_app(os.getenv('LNDGRN_CONFIG') or 'default')
 manager = Manager(app)
 migrate = Migrate(app, db)
