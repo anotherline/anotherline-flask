@@ -7,7 +7,7 @@
       <ul class="striped">
         {% for b in user.books %}
           <li>
-            {{ b.fam_name }}, {{ b.given }}. ({{ b.year }}). <cite>{{ b.title }}</cite>. {{ b.city }}, {{ b.state }}: {{ b.publisher }}.
+            {{ b.apa_beg_name }} <cite>{{ b.title }}</cite>. {{ b.city }}, {{ b.state }}: {{ b.publisher }}.
           </li>
         <!-- <li>
           Brooks, Kevin &amp; Chris Lindgren. (2015). Responding to the coding crisis: From 'Code Year' to Code Decade. Lynn C. Lewis, (Ed.). <cite>Strategic Discourse: The Politics of (New) Literacy Crises</cite>. Computers and Composition Digital Press. <a href="http://ccdigitalpress.org/strategic/chapters/brookslindgren/index.html" target="_blank">http://ccdigitalpress.org/strategic/chapters/brookslindgren/index.html</a>.

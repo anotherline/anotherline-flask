@@ -5,11 +5,17 @@ import os
 basedir = os.path.abspath(os.path.dirname(__file__))
 
 SECRET_KEY = '[secret key here]'
+DB_USERNAME = '[username here]'
+DB_PASSWORD = '[password here]'
 DEBUG = True
 DATABASE_URL = 'postgresql://' + os.path.join(basedir, 'data.sql')
 DEV_DATABASE_URL = 'postgresql://' + os.path.join(basedir, 'data-dev.sql')
 TEST_DATABASE_URL = 'postgresql://' + os.path.join(basedir, 'data-test.sql')
 SQLALCHEMY_COMMIT_ON_TEARDOWN = True
+SQLALCHEMY_TEST_DATABASE_URI = 'postgresql://' + DB_USERNAME + ':' \
+		+ DB_PASSWORD + '@localhost/datatest'
+SQLALCHEMY_DATABASE_URI = 'postgresql://' + DB_USERNAME + ':' \
+		+ DB_PASSWORD + '@localhost/datadev'
 LNDGRN_ADMIN = '[admin name here]'
 
 # email server

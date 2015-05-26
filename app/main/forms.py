@@ -61,8 +61,8 @@ class CvNameForm(Form):
 
 class BookCvForm(Form):
 	title = StringField('Title:', validators=[Required(), Length(1, 128)])
-	given = StringField('Given name:', validators=[Required(), Length(1, 64)])
-	middle_name = StringField('Middle name:', validators=[Required(), Length(1, 64)])
+	given_name = StringField('Given name:', validators=[Required(), Length(1, 64)])
+	mid_name = StringField('Middle name:', validators=[Required(), Length(1, 64)])
 	fam_name = StringField('Family name:', validators=[Required(), Length(1, 64)])
 	year = StringField('Year:', validators=[Required(), Length(1,4)])
 	publisher = StringField('Publisher:', validators=[Required(), Length(1, 64)])
@@ -74,8 +74,8 @@ class BookCvForm(Form):
 
 class EditBookCvForm(Form):
 	title = StringField('Title:', validators=[Required(), Length(1, 128)])
-	given = StringField('Given name:', validators=[Required(), Length(1, 64)])
-	middle_name = StringField('Middle name:', validators=[Required(), Length(1, 64)])
+	given_name = StringField('Given name:', validators=[Required(), Length(1, 64)])
+	mid_name = StringField('Middle name:', validators=[Required(), Length(1, 64)])
 	fam_name = StringField('Family name:', validators=[Required(), Length(1, 64)])
 	year = StringField('Year:', validators=[Required(), Length(1,4)])
 	publisher = StringField('Publisher:', validators=[Required(), Length(1, 64)])

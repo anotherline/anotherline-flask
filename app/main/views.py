@@ -106,8 +106,8 @@ def add_new_book(username):
 	form = BookCvForm()
 	if form.validate_on_submit():
 		form = Book(title=form.title.data,
-					given=form.given.data,
-					middle_name=form.middle_name.data,
+					given_name=form.given_name.data,
+					mid_name=form.mid_name.data,
 					fam_name=form.fam_name.data,
 					year=form.year.data,
 					publisher=form.publisher.data,
@@ -150,8 +150,8 @@ def edit_book(username, id):
 	form = EditBookCvForm(obj=edit_bk)
 	if form.validate_on_submit():
 		edit_bk.title = form.title.data
-		edit_bk.given = form.given.data
-		edit_bk.middle_name = form.middle_name.data
+		edit_bk.given_name = form.given_name.data
+		edit_bk.mid_name = form.mid_name.data
 		edit_bk.fam_name = form.fam_name.data
 		edit_bk.year = form.year.data
 		edit_bk.publisher = form.publisher.data
