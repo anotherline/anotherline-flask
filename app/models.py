@@ -58,8 +58,9 @@ class User(UserMixin, db.Model):
 	given_name = db.Column(db.String(64))
 	mid_name = db.Column(db.String(64))
 	fam_name = db.Column(db.String(64))
-
+	fullname = db.column_property(given_name + ' ' + mid_name + ' ' + fam_name)
 	username = db.Column(db.String(64), unique=True, index=True)
+	
 	email = db.Column(db.String(64), unique=True, index=True)
 	title = db.Column(db.String(64), unique=True)
 	university = db.Column(db.String(128), unique=True)

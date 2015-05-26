@@ -10,7 +10,9 @@ class NameForm(Form):
 	submit = SubmitField('Submit')
 
 class EditProfileForm(Form):
-	name = StringField('Real name', validators=[Length(0, 64)])
+	given_name = StringField('Given name', validators=[Length(0, 64)])
+	mid_name = StringField('Middle name', validators=[Length(0, 64)])
+	fam_name = StringField('Family name', validators=[Length(0, 64)])
 	university = StringField('University', validators=[Length(0, 128)])
 	title = StringField('Title', validators=[Length(0, 64)])
 	location = StringField('Location', validators=[Length(0, 64)])
@@ -30,7 +32,9 @@ class EditProfileAdminForm(Form):
 								  'numbers, dots or underscores')])
 	confirmed = BooleanField('Confirmed')
 	role = SelectField('Role', coerce=int)
-	name = StringField('Real name', validators=[Length(0, 64)])
+	given_name = StringField('Given name', validators=[Length(0, 64)])
+	mid_name = StringField('Middle name', validators=[Length(0, 64)])
+	fam_name = StringField('Family name', validators=[Length(0, 64)])
 	location = StringField('Location', validators=[Length(0, 64)])
 	about_me = TextAreaField('About me')
 	submit = SubmitField('Submit')

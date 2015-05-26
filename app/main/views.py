@@ -45,7 +45,9 @@ def user(username):
 def edit_profile():
 	form = EditProfileForm()
 	if form.validate_on_submit():
-		current_user.name = form.name.data
+		current_user.given_name = form.given_name.data
+		current_user.mid_name = form.mid_name.data
+		current_user.fam_name = form.fam_name.data
 		current_user.location = form.location.data
 		current_user.about_me = form.about_me.data
 		current_user.university = form.university.data
@@ -53,7 +55,9 @@ def edit_profile():
 		db.session.add(current_user)
 		flash('Your profile has been updated.')
 		return redirect(url_for('.user', username=current_user.username))
-	form.name.data = current_user.name
+	form.given_name.data = current_user.given_name
+	form.mid_name.data = current_user.mid_name
+	form.fam_name.data = current_user.fam_name
 	form.location.data = current_user.location
 	form.about_me.data = current_user.about_me
 	form.university.data = current_user.university
