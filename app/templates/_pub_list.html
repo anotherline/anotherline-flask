@@ -7,12 +7,8 @@
       <ul class="striped">
         {% for b in user.books %}
           <li>
-            {{ b.apa_beg_name }} <cite>{{ b.title }}</cite>. {{ b.city }}, {{ b.state }}: {{ b.publisher }}.
+            {{ b.given_name[0] }}.{{ b.mid_name[0] }}. {{ b.fam_name }}. <cite>{{ b.title }}</cite>. {{ b.city }}, {{ b.state }}: {{ b.publisher }}.
           </li>
-        <!-- <li>
-          Brooks, Kevin &amp; Chris Lindgren. (2015). Responding to the coding crisis: From 'Code Year' to Code Decade. Lynn C. Lewis, (Ed.). <cite>Strategic Discourse: The Politics of (New) Literacy Crises</cite>. Computers and Composition Digital Press. <a href="http://ccdigitalpress.org/strategic/chapters/brookslindgren/index.html" target="_blank">http://ccdigitalpress.org/strategic/chapters/brookslindgren/index.html</a>.
-        <li>
-          Brooks, Kevin, Chris Lindgren, and Matthew Warner. (2015). Tackling a fundamental problem: Using digital labs to build a smarter computing culture. Bill Hart-Davidson and Jim Ridolfo, (Eds.). <cite>Rhetoric and the Digital Humanities</cite>, (pp. 224 - 232). Chicago, IL: University of Chicago Press. -->
         {% endfor %}
       </ul>
     </div>
@@ -33,7 +29,8 @@
       <div id="in-process-pubs-child">
         <ul class="striped">
           <li>
-            Hawk, Byron, Chris Lindgren, and Andrew Mara. Utopian Laptop Initiatives: From technological deism to object-oriented rhetoric. In Sidney Dobrin, (Ed.). <cite>Writing Posthumanism, Posthuman Writing</cite>. [Manuscript accepted; Parlor Press, July 2014].
+            Brooks, Kevin &amp; Chris Lindgren. (2015). Responding to the coding crisis: From 'Code Year' to Code Decade. Lynn C. Lewis, (Ed.). <cite>Strategic Discourse: The Politics of (New) Literacy Crises</cite>. Computers and Composition Digital Press. <a href="http://ccdigitalpress.org/strategic/chapters/brookslindgren/index.html" target="_blank">http://ccdigitalpress.org/strategic/chapters/brookslindgren/index.html</a>.
+          <li>
         </ul>
       </div>
   </div>
