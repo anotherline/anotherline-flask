@@ -20,13 +20,13 @@
 
 				{% if current_user.name or user.location or user.university %}
 					<p>
-						{% if user.name %}
+						{% if user.fullname %}
 							<b>Name</b>: {{ user.fullname }}
 						{% endif %}
 					</p>
 					<p>
 						{%- if user.university -%}
-							<b>University</b>: {{ user.university }}
+							<b>University</b>: {{ user.title }} at {{ user.university }}
 						{% endif %}
 					</p>
 					<p>
